@@ -1,4 +1,6 @@
 CitiesRails::Application.routes.draw do
+  match '/' => 'default#index', :as => :default
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

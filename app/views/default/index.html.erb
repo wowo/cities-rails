@@ -1,0 +1,76 @@
+<div class="row">
+    <div class="span8">
+        <table>
+            <caption>Top 10 USA cities</caption>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Population</th>
+                    <th>Area</th>
+               </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th><%= number_with_delimiter(@topCitiesSummary[:population]) %></th>
+                    <th><%= number_with_delimiter(@topCitiesSummary[:land_area]) %></th>
+               </tr>
+           </tfoot>
+           <tbody>
+                <% @topCities.each do |city| %>
+                    <tr>
+                        <td><%= city.rank %></td>
+                        <td><%= city.name %></td>
+                        <td><%= city.state.name %> (<%=city.state.shortcut %>)</td>
+                        <td><%= number_with_delimiter(city.population) %></td>
+                        <td><%= number_with_delimiter(city.land_area) %></td>
+                    </tr>
+                <% end %>
+           </tbody>
+        </table>
+    </div>
+    <div class="span8">
+        <table>
+            <caption>Top 10 USA states with biggest cities</caption>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>State</th>
+                    <th>Capital</th>
+                    <th>Cities number</th>
+                    <th>Population</th>
+                    <th>Biggest cities population</th>
+                    <th>Biggest cities area</th>
+               </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th><%= number_with_delimiter(@topStatesSummary[:population]) %></th>
+                    <th><%= number_with_delimiter(@topStatesSummary[:land_area]) %></th>
+               </tr>
+           </tfoot>
+           <tbody>
+               <% @topStates.each_with_index do |state, index| %>
+                    <tr>
+                        <td><%= index + 1 %></td>
+                        <td><%= state.name %></td>
+                        <td><%= state.capital %></td>
+                        <td><%= state.countCities %></td>
+                        <td><%= number_with_delimiter(state.population) %></td>
+                        <td><%= number_with_delimiter(state.sumPopulation) %></td>
+                        <td><%= number_with_delimiter(state.sumLandArea) %></td>
+                    </tr>
+               <% end %>
+           </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  rank: 1
+  state_id: 1
+  population: 1
+  land_area: 9.99
+  population_density: 9.99
+
+two:
+  name: MyString
+  rank: 1
+  state_id: 1
+  population: 1
+  land_area: 9.99
+  population_density: 9.99
